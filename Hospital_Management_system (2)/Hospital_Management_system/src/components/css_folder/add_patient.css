@@ -1,0 +1,54 @@
+.add_patient_body{
+    background-image: url(https://i.pinimg.com/1200x/a6/11/9e/a6119e4ef5594227d591e6fdbf44e7b0.jpg);
+    height:100vh;
+    width: 100vw;
+    background-size: cover;
+}
+.add_patient{
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15);
+
+        height: 60vh;
+        width: 50vw;
+        justify-self: center;
+        margin-top: 80px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap:20px;
+        padding:10px;
+        border-radius: 10px;
+}
+.add_patient input{
+    height: 50px;
+    width: 400px;
+    border: none;
+    border-radius: 10px;
+}
+.add_patient button{
+    height: 60px;
+    width: 200px;
+    border: none;
+    border-radius: 30px;
+    background: 
+  radial-gradient(circle at top left, rgba(255,255,255,0.4), transparent),
+  linear-gradient(135deg, #64c2f8, #3a8dff);
+}
+.add_patient button:hover{
+    height: 65px;
+    width: 220px;
+    border: none;
+    border-radius: 30px;
+    background: 
+  radial-gradient(circle at top left, rgba(255,255,255,0.4), transparent),
+  linear-gradient(135deg, #64c2f8, #3a8dff);
+  font-size: large;
+  color:white;
+}

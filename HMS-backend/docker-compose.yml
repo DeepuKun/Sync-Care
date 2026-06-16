@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: sync-care-mysql
+    restart: always
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      MYSQL_DATABASE: sync_care
+    ports:
+      - "3306:3306"
+    volumes:
+      - sync_care_mysql_data:/var/lib/mysql
+
+volumes:
+  sync_care_mysql_data:

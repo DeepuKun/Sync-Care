@@ -1,0 +1,14 @@
+.all-patients{
+    display: flex;
+    flex-direction: column;
+    height: 85.5vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    gap:60px;
+}
+.all-patient-container{
+    width: 100vw;
+    background-image: url(https://i.pinimg.com/736x/19/f0/e8/19f0e898da7ddc16899c1d62c1dbd1eb.jpg);
+    background-size: cover;
+}

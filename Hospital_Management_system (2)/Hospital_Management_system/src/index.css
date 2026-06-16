@@ -1,0 +1,31 @@
+
+*{
+  margin: 0;
+  padding:0;
+}
+.light{
+  color: rgb(161, 161, 161);
+}
+.synccare{
+  color:rgb(0, 68, 255);
+}
+.number_container{
+  display: flex;
+}
+.digitbox{
+  background-color: rgb(250, 138, 138);
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+
+}
+
+* {
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+}
+
+
+*::-webkit-scrollbar {
+    display: none;
+}

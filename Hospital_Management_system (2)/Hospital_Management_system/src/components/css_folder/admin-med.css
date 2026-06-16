@@ -1,0 +1,61 @@
+.Admin-med-container{
+    height: 100vh;
+    width: 100vw;
+    background-image: url(https://i.pinimg.com/736x/b1/3a/03/b13a032f1a7ed8af529cc28736e305ab.jpg);
+    background-size: cover;
+    color: white;
+}
+
+.admin-doc-options{
+        border: none;
+        margin-top: 40px;
+        gap:20px;
+        height: 230px;
+        border-radius: 10px;
+    width: 60vw;
+    justify-self: center;
+    display: flex;
+}
+.admin-doc-option-buttons{
+    height: 35vh;
+    width: 30vw;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15);
+        border: none;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap:10px;
+}
+.admin-doc-option-buttons button{
+    height: 20px;
+    width: 200px;
+    background-color: black;
+    color: white;
+    border:none;
+    border-radius: 5px;
+}
+.admin-doc-option-buttons button:hover{
+    font-size: medium;
+    background-color: white;
+    color: black;
+}
+.admin-doc-option-buttons img{
+    height: 85%;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.admin-remove-container{
+     background-image: url(https://i.pinimg.com/736x/18/11/61/181161ac191c9a69998a4dfbc9ac13e2.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+}

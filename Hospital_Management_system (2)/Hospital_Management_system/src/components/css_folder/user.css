@@ -1,0 +1,277 @@
+.user_container{
+width: 100vw;
+height:auto;
+min-height: 100vh;
+background-color: red;
+}
+.user_prescription{
+    margin-top: 20px;
+    height: 62vh;
+    width: 50vw;
+    background-color: rgb(181, 181, 181);
+    justify-self: center;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+}
+.user_footer{
+    display: flex;
+    gap:60px;
+    margin-top: 20px;
+}
+.user_footer button{
+    height: 50px;
+    width: 150px;
+    border-radius: 10px;
+}
+.user_footer button:hover{
+    background-color: rgb(22, 28, 29);
+    color: white;
+    border: none;
+    height: 50px;
+    width: 180px;
+    border-radius: 20px;
+}  
+
+.user_login_hero{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-image: url(https://i.pinimg.com/736x/ef/ec/27/efec27aafee617eb91d653b7239b92a8.jpg);
+    background-size:cover;
+    height: 85.5vh;
+    padding: 60px;
+    font-size:25px;
+}
+
+.user_login_right{
+    background-color: rgb(255, 255, 255);
+    height: 60vh;
+    width: 45vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    gap:5px;
+}
+.user_login_right img{
+    height: 40vh;
+    width: 30vw;
+}
+
+.user_login_right input{
+    height: 5vh;
+    width: 25vw;
+    border: 1px solid grey;
+    border-radius: 10px;
+}
+.user_login_right button{
+    height: 5vh;
+    width: 10vw;
+    border-radius: 10px;
+    background-color: rgb(22, 28, 29);
+    color: white;
+    border: none;
+}
+.user_login_right button:hover{
+    height: 5.5vh;
+    width: 15vw;
+    border-radius: 10px;
+    font-size: large;
+}
+
+.user_prescription_card{
+    background-color: grey;
+    border-radius: 10px;
+    width: 40vw;
+    padding: 10px;
+}
+.user_prescription_card:hover{
+    background-color: rgb(93, 93, 93);
+    border-radius: 10px;
+    width: 41vw;
+}
+
+.user_header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:100px;
+    padding: 20px;
+    background-image: url(https://i.pinimg.com/736x/27/ee/2b/27ee2b7a61f68629b0bc4ad0a8cced95.jpg);
+    background-size: cover;
+    height: 88vh;
+    width: 40vw;
+}
+.user_header span{
+    color: blue;
+}
+
+.user_prescription_section{
+    background-color:rgb(210, 210, 210);
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.user_header button{
+    height: 7vh;
+    width: 10vw;
+    background-color: rgb(22, 28, 29);
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+.user_header_choices{
+    display: flex;
+    gap: 60px ;
+}
+.user_header_button{
+     background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15);
+    display: flex;
+    border-radius: 10px;
+    height: 32vh;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.user_header_button img{
+    height: 20vh;
+    width: 15vw;
+}
+.user_header button:hover{
+    background-color: rgb(22, 28, 29);
+    color: white;
+    font-size: medium;
+    border: none;
+    height: 7.5vh;
+    width: 12vw;
+    border-radius: 10px;
+}
+.User_results_container{
+    background-color: grey;
+    border-radius: 10px;
+    width: 620px;
+    height: auto;
+    margin-top: 16px;
+    padding:10px;
+}
+
+/* MAIN LAYOUT */
+.user_main_layout {
+  display: flex;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* SIDEBAR BASE */
+.user_sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 100vh;
+  background: #111827;
+  color: white;
+  padding: 20px;
+  
+  /* 🔥 HIDDEN STATE */
+  transform: translateX(-100%);
+  opacity: 0;
+
+  /* 🔥 SMOOTH ANIMATION */
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.3s ease;
+
+  z-index: 1000;
+}
+
+/* 🔥 ACTIVE SIDEBAR */
+.user_sidebar.active {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* CONTENT SHIFT (SMOOTH PUSH) */
+.user_content {
+  flex: 1;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* PUSH EFFECT */
+.user_sidebar.active ~ .user_content {
+  transform: translateX(120px);
+}
+
+/* 🔥 OVERLAY FADE */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  
+  opacity: 0;
+  animation: fadeIn 0.3s forwards;
+
+  z-index: 999;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* 🔥 SIDEBAR CONTENT STYLE */
+.user_sidebar h2 {
+  margin-bottom: 15px;
+}
+
+.user_sidebar p {
+  font-size: 14px;
+  margin: 6px 0;
+  opacity: 0.9;
+}
+
+/* 🔥 INPUT + BUTTON */
+.user_sidebar input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+  border-radius: 6px;
+  border: none;
+}
+
+.user_sidebar button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  background: #22c55e;
+  color: white;
+  cursor: pointer;
+
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+/* 🔥 BUTTON HOVER MICRO-INTERACTION */
+.user_sidebar button:hover {
+  transform: scale(1.05);
+  background: #16a34a;
+}

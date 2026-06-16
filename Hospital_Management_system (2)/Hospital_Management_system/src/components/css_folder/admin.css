@@ -1,0 +1,172 @@
+
+.admin_login_header{
+    color: white;
+}
+.admin_login_container{
+    height: 100vh;
+    background-image: url(https://i.pinimg.com/originals/a9/4a/ee/a94aee835e16cff4f14c83dac8ffbe10.gif);
+    background-size: cover;
+
+}
+.admin_login{
+    height: 50vh;
+    width: 40vw;
+     background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    justify-self: center;
+    margin-top: 100px;
+}
+.admin_login img{
+    height: 75%;
+    width: 100%;
+    border-radius: 10px;
+}
+.admin_login form{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10px
+}
+.admin_login input{
+    background-color: black;
+    height: 40px;
+    width: 12vw;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+.admin_login button{
+    background-color: black;
+    color: white;
+    height: 40px;
+    width: 12vw;
+    border: none;
+    border-radius: 5px;
+
+}
+.admin_login button:hover{
+    background-color: rgb(255, 255, 255);
+    color: black;
+    font-size: medium;
+    height: 40px;
+    width: 12vw;
+    border: none;
+    border-radius: 5px;
+
+}
+.admin-container{
+    background-image: url(https://i.pinimg.com/736x/a6/07/b8/a607b88eb45c08918a823b622f8ab1f8.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+}
+.admin-option{
+     background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    color: white;
+}
+.admin-hero{
+    display: flex;
+    height: 85vh;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.admin-left{
+    width: 45vw;
+    height: 80vh;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;   
+}
+.admin-left-options{
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
+.admin-option{
+    height: 250px;
+    width: 250px;
+}
+.admin-option:hover{
+    height: 255px;
+    width: 255px;
+}
+.admin-option img{
+    height: 200px;
+    width: 100%;
+    border-radius: 10px;
+}
+.admin-option button{
+    height: 35px;
+    width: 160px;
+    margin-left:40px;
+    margin-top: 3px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+.admin-option button:hover{
+    background-color: white;
+    font-size: medium;
+    color: black;
+}
+.admin-right{
+
+    width: 45vw;
+    height: 80vh;
+         background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    color: white;
+}
+.admin-right-upper{
+    height: 85%;
+}
+.chat{
+    height: 100%;
+    width: 100%;
+}
+
+.admin-right-lower{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    margin-top:25px;
+}
+.admin-right-lower button{
+        height: 45px;
+    width: 230px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+.admin-right-lower button:hover{
+    background-color: white;
+    font-size: medium;
+    color: black;
+}

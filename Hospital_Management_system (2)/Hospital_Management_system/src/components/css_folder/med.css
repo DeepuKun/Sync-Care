@@ -1,0 +1,293 @@
+.med_add_logo{
+    height: 20px;
+    border-radius: 50%;
+}
+.med_add_button{
+   background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15);
+
+    color: #000;
+    display:flex ;
+    gap:10px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    width: 15vw;
+}
+
+
+.med_dept {
+       min-height: 100vh;
+    background: linear-gradient(
+        135deg,
+        #ffffff 0%,
+        #f5f7fa 40%,
+        #207ffa 100%
+    )
+}
+
+.med_dept_header{
+    align-items: center;
+     background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15);
+
+    color: #000;
+}
+.med_dept_header h1{
+    font-size: 35px;
+    color: rgb(0, 0, 158);
+}
+
+.med_dashboard_buttons{
+    margin: 20px;
+    display: flex;
+    gap:20px;
+}
+/* ADD MEDICINE SECTION */
+.med_add{
+    background-image: url("https://i.pinimg.com/originals/71/67/c4/7167c4a591e56e78fd258ac2f8422613.gif");
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+}
+.med_form{
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15);
+
+    color: #000;
+  height: 45vh;
+  width:50vw;
+  margin-left: 25vw;
+  margin-top: 20vh;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding:10px;
+}
+.med_form input{
+    height: 30px;
+    width: 500px;
+    border: none;
+    border-radius: 10px;
+}
+.med_form button{
+    width: 250px;
+    height: 45px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(1, 16, 153);
+    color: white;
+}
+.med_form button:hover{
+     width: 260px;
+    height: 50px;
+    background-color: rgb(0, 8, 81);
+    border: 0.5px solid white;
+}
+.med_add h2{
+    color: rgb(5, 5, 192);
+}
+.med_add img{
+    height: 40px;
+}
+.med_add_header{
+     background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15);
+
+    color: #000;
+    height: 15vh;
+}
+.med_add_header img{
+    height:20px;
+    padding-bottom:20px;
+    padding-top: 15px;
+    padding-left:20px;
+    padding-right: 20px;
+    border-radius: 30%;
+}
+.med_add_header h1{
+    font-size: 40px;
+    padding-top: 10px;
+}
+
+/* Page wrapper */
+.medicine_container {
+    min-height: 100vh;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Heading */
+.medicine_container h2 {
+    font-size: 28px;
+    margin-bottom: 25px;
+    color: #1c1c1e;
+    letter-spacing: 1px;
+}
+
+/* Glass Table */
+.medicine_table {
+    width: 80%;
+    border-collapse: collapse;
+
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border-radius: 20px;
+    overflow: hidden;
+
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* Header */
+.medicine_table thead {
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.medicine_table th {
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    color: #1c1c1e;
+}
+
+/* Rows */
+.medicine_table td {
+    padding: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    color: #2c2c2e;
+}
+
+/* Hover effect */
+.medicine_table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transition: 0.3s ease;
+}
+
+.search_page{
+    background-image:url(https://i.pinimg.com/originals/ad/04/07/ad0407a7b409e6d07c36bf7225b2bd85.gif);
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.search_page h2{
+    padding-top: 30px;
+}
+
+.search_box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.search_box input {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+}
+
+.search_box button {
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+.result_card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15);
+
+    color: #000;
+    padding: 20px;
+    border-radius: 15px;
+    width: 500px;
+}
+
+.error_text {
+    color: red;
+}
+.med-search-container{
+        background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15);
+
+    color: #000;
+    margin-left:350px;
+    width: 600px;
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.lowest-Med-Container{
+background-image: url(https://i.pinimg.com/originals/23/97/2d/23972de26eeb6dad28b1368799ae37d9.gif);
+        background-size:cover;
+height: 100vh;
+width: 100vw;
+}
+.lowest_medicine_container{
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+    
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    
+        box-shadow: 
+            0 8px 32px rgba(0, 0, 0, 0.15);
+    
+        color: #000;
+        margin-left:335px;
+        width: 600px;
+        margin-top: 150px;
+        display: flex;
+        flex-direction: column;
+        gap:20px;
+        padding: 20px;
+        border-radius: 10px;
+}

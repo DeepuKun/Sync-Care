@@ -1,0 +1,327 @@
+.lab-container{
+    background-image: url(https://i.pinimg.com/736x/1c/dd/92/1cdd92d2cc4ef1e5852758aa46140cbf.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+}
+.waiting-lab-patients{
+    height:auto;
+    min-height: 100vh;
+    width: 100vw;
+    background-image: url(https://i.pinimg.com/736x/6e/2d/97/6e2d971d054aa9529d539e88748e9753.jpg);
+    background-size: cover;
+}
+.lab-test-card{
+            background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255);
+
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+    height: 20vh;
+    width: 30vw;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px;
+}
+.lab-test-card img{
+    height: 20px;
+    border-radius: 50%;
+}
+
+.add-lab-details{
+
+            background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255);
+
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+            border-radius: 10px;
+            height: auto;
+            width: 30vw;
+            margin: 5px;
+            padding: 10px;
+
+}
+.add-lab-details input{
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255);
+
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15);
+            border-radius: 30px;
+            margin-right:20px;
+            height: 30px;
+            width: 210px;
+}
+.add-lab-details button{
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255);
+
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+
+                        height: 30px;
+            width: 100px;
+}
+.lab-test-data-card{
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255);
+
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+
+            margin: 10px;
+            padding: 10px;
+
+}
+.add-lab-details button:hover{
+    background: rgba(0, 123, 255, 0.5);
+    color: white;
+    font-size: medium;
+    width: 110px;
+    height:31px ;
+    border: none;
+}
+.view-all-lab-tech{
+    
+            background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255);
+
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+            border-radius: 10px;
+            height: auto;
+            width:36vw;
+            margin: 5px;
+}
+.waiting-lab-test-list{
+    display: flex;
+    
+}
+.view-all-lab-tech{
+    padding: 6px;
+}
+.view-all-lab-tech button{
+    transition-property: all;
+    transition-duration: 0.5s;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255);
+
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15);
+        padding:6px;
+        border-radius: 5px;
+        margin:6px;
+}
+.view-all-lab-tech button:hover{
+    font-size: medium;
+    color: white;
+}
+
+.lab-techs-card{
+                background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255);
+
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15);
+    margin: 20px;
+    padding: 10px;
+    border-radius: 10px;
+}
+.all-lab-test table {
+  border-collapse: collapse;
+  width: 70%;
+                  background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255);
+
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15);
+        margin-top:100px;
+        border-radius: 10px;
+  justify-self: center;
+}
+
+.all-lab-test th, td {
+  padding: 8px;
+  text-align: left;
+}
+.all-lab-test-container{
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    background: linear-gradient(135deg, #eaf4ff 0%, #cfe9ff 40%, #3195e6 70%, #005294 100%);
+}
+.assigned-patient-card{
+     background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255);
+
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15);
+        margin:20px;
+        padding:20px;
+        border-radius: 10px;
+        width: 40vw;
+}
+.assigned-patient-table {
+  width: 80%;
+  height: 20vh;
+  border-collapse: collapse;
+       background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255);
+
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  justify-self: center;
+  margin-top: 30px;
+}
+
+.assigned-patient-table th{
+       background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255);
+
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15);
+  padding: 12px;
+  text-align: left;
+}
+
+.assigned-patient-table td{
+  padding: 10px;
+       background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255);
+
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.assigned-patient-table tr:hover {
+  background: #f5faff;
+}
+.assigned-patient-table button{
+      padding: 6px;
+       background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255);
+
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15);
+        margin: 10px;
+        width: 100px;
+        border-radius: 10px;
+}
+.assigned-patient-table button:hover{
+           background: rgba(17, 29, 255, 0.5);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255);
+
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15);
+        color: white;
+        font-size: medium;
+}
+.Test_Result_form{
+           background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255);
+
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15);
+        display: flex;
+        gap: 20px;
+        height: 70px;
+        align-items: center;
+        width: 80vw;
+        justify-content: center;
+        justify-self: center;
+        margin-top: 40px;
+        border-radius: 10px;
+}
+.Test_Result_form input{
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255);
+
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15);
+            border-radius: 30px;
+            margin-right:20px;
+            height: 40px;
+            width: 370px;
+            align-content: center;
+}
+.Test_Result_form button{
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255);
+
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15);
+            border-radius: 30px;
+            margin-right:20px;
+            height: 40px;
+            width: 100px;
+}
+.Lab-ready-container{
+    min-height: 100vh;
+    height: auto;
+    width: 100vw;
+    background-image: url(https://i.pinimg.com/originals/54/58/a1/5458a14ae4c8f07055b7441ff0f234cf.gif);
+    background-size: cover;
+}

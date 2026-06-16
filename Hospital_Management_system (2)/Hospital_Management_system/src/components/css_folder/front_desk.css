@@ -1,0 +1,123 @@
+.front_desk_main{
+    background-image: url(https://i.pinimg.com/736x/91/3b/41/913b41a9280ab62585c5234dc360404a.jpg);
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+}
+.front_desk_header{
+    padding:10px;
+}
+.front_desk_profile_icon{
+    height: 50px;
+    border-radius: 30px;
+}
+.front_desk_footer{
+    height:100px;
+    width: 100vw;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15);
+        display: flex;
+        gap:600px;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+         font-size: 15px;
+  font-weight: bold;
+}
+.front_desk_footer button{
+    height: 60px;
+    width: 200px;
+    border: none;
+    border-radius: 30px;
+    background: 
+  radial-gradient(circle at top left, rgba(255,255,255,0.4), transparent),
+  linear-gradient(135deg, #ff0000, #ff0000);
+  font-size: large;
+  font-weight: bold;
+}
+
+.front_desk_footer button:hover{
+    height: 65px;
+    width: 220px;
+    border: none;
+    border-radius: 10px;
+    background: 
+  radial-gradient(circle at top left, rgba(255,255,255,0.4), transparent),
+  linear-gradient(135deg, #ff0000, #ff0000);
+  font-size: large;
+  font-weight: bold;
+}
+.front_desk_hero{
+    height: 68vh;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    width: 40vw;
+    justify-content: center;
+    padding: 10px;
+}
+.front_desk_division{
+     background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15);
+        height: 400px;
+        width: 40vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:30px;
+    border: none;
+    border-radius: 10px;
+}
+.front_desk_hero_container{
+    width: 100vw;
+    display: flex;
+    gap: 20px;
+}
+.front_desk_chat{
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15);
+    height: 65vh;
+    width: 57vw;
+    align-self: center;
+    border-radius: 10px;
+}
+.front_desk_chat iframe{
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+}
+.front_desk_division button{
+    height:50px;
+    width: 90px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+.front_desk_division button:hover{
+    height: 53px;
+    width: 93px;
+    background-color: rgb(238, 238, 238);
+    border: none;
+    border-radius: 10px;
+    color:black;
+}

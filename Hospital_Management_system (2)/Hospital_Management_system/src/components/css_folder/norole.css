@@ -1,0 +1,73 @@
+.norole{
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-image: url("https://i.pinimg.com/originals/da/50/09/da500959c4a72da8dd39ce88fc97208c.gif");
+    /* background-image: url("https://wallpapercave.com/wp/wp2864012.gif");
+    background-image: url("https://i.pinimg.com/originals/ae/84/50/ae8450c30b52a7138d04296101c5a7be.gif"); */
+   /* background-image: url("https://i.pinimg.com/originals/48/67/79/48677982e0a309142bf2ebe21edb4486.gif"); */
+}
+.norole h1{
+    color: rgb(25, 0, 215);
+    text-align: center;
+    padding-top:10px;
+    font-size: 50px;
+}
+.norole_header{
+     background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15);
+
+    color: #000;
+}
+.norole img{
+    height: 90px;
+    padding:10px;
+    border-radius: 20%;
+}
+.norole_notice {
+    display: flex;
+    flex-direction: column;
+    margin-left: 32vw;
+    margin-top: 30vh;
+
+    width: 40vw;
+    height: 38vh;
+
+    justify-content: center;
+    text-align: center;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15);
+
+    color: #000;
+}
+.norole_notice button{
+    background: 
+  radial-gradient(circle at top left, rgba(255,255,255,0.4), transparent),
+  linear-gradient(135deg, #64c2f8, #3a8dff);
+  height: 30px;
+  width: 180px;
+  border-radius: 10px;
+  border: 0px;
+}
+.norole_notice button:hover{
+    background: 
+  radial-gradient(circle at top left, rgba(255,255,255,0.4), transparent),
+  linear-gradient(135deg, #3db4fa, #066eff);
+  height: 35px;
+  width: 220px;
+}

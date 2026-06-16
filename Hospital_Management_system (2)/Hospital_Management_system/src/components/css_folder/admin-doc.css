@@ -1,0 +1,92 @@
+.admin-doc-container{
+    background-image: url(https://i.pinimg.com/originals/1d/73/5a/1d735ad8eee8350adc96d50e1421ee6d.gif);
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+}
+
+.admin-doc-add-container{
+    height: 100vh;
+    width: 100vw;
+    background-image: url(https://i.pinimg.com/1200x/10/48/ef/1048efce851224e3b401a7ce9d00caed.jpg);
+    background-size: cover;
+}
+.add-doc-form{
+    justify-self: center;
+    height: 50vh;
+    background: rgba(255, 255, 255, 0);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15);
+           
+    border-radius: 10px;
+    width: 40vw;
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    gap:40px;
+    padding: 40px;
+}
+.add-doc-form input{
+    height: 8vh;
+    border: none;
+    border-radius: 5px;
+}
+
+.add-doc-form button{
+    height: 8vh;
+    width: 160px;
+    align-self: center;
+    border-radius: 30px;
+    background-color:black;
+    color: white;
+}
+.add-doc-form button:hover{
+    color: black;
+    font-size: medium;
+    background-color: white;
+}
+
+.admin-remove-doc{
+    justify-self: center;
+      background: rgba(255, 255, 255, 0);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15);
+           
+    border-radius: 10px;
+    height:20vh;
+    width: 30vw;
+    margin-top: 30vh;
+    display: flex;
+    flex-direction: column;
+    gap:30px;
+    padding: 20px;
+}
+.admin-remove-doc input{
+    height: 60px;
+        border: none;
+    border-radius: 5px;
+}
+.admin-remove-doc button{
+        height: 8vh;
+    width: 160px;
+    align-self: center;
+    border-radius: 30px;
+    background-color:black;
+    color: white;
+}
+
+.admin-remove-doc button:hover{
+    color: black;
+    font-size: medium;
+    background-color: white;
+}
