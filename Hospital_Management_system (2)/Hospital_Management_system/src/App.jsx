@@ -44,7 +44,7 @@ import Admin_add_lab from "./pages/admin/Admin_add_lab";
 import Admin_remove_lab from "./pages/admin/Admin_remove_lab";
 import Admin_update_lab from "./pages/admin/Admin_update_lab";
 import Admin_view_lab from "./pages/admin/Admin_view_lab";
-import Admin_add_med from "./pages/admin/admin_add_med";
+import Admin_add_med from "./pages/admin/Admin_add_med";
 import Add_lab_test from "./pages/Add_lab_test";
 import Front_lab_page from "./pages/Front_lab_page";
 import All_Lab_Test from "./pages/All_Lab_Test";
