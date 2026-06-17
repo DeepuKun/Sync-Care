@@ -846,7 +846,8 @@ app.post('/add-med-dept', authenticateToken, authorizeRoles("admin"), async (req
   }
 }); 
 
-// ADMIN DELETE STAFF ================================================================== 
+// ADMIN DELETE STAFF 
+// ================================================ 
 app.delete('/delete-doctor/:id', authenticateToken, authorizeRoles("admin"), (req, res) => { 
   const { id } = req.params; 
   if (!id) { 
@@ -960,10 +961,7 @@ app.put("/update-password/:id", authenticateToken, authorizeRoles("user", "admin
 
 console.log("SERVER.JS STARTED");
 require("dotenv").config();
-
 console.log("ENV LOADED");
-console.log("PORT =", process.env.PORT);
-console.log("DATABASE_URL =", !!process.env.DATABASE_URL);
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server running on port ${PORT}`);
 });
