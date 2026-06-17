@@ -60,6 +60,12 @@ const Admin_login = () => {
       </div>
 
       <div>
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '15px' }}>
+          <div style={{ padding: '8px 16px', backgroundColor: '#fee2e2', color: '#991b1b', borderRadius: '8px', fontSize: '13px', textAlign: 'center', border: '1px solid #fecaca', fontWeight: 'bold' }}>
+            🔑 Admin Demo Login: Use ID "admin" & Password "admin123"
+          </div>
+        </div>
+
         <div className='admin_login'>
 
           <img src='https://i.pinimg.com/originals/81/17/8b/81178b47a8598f0c81c4799f2cdd4057.gif'></img>
@@ -67,14 +73,14 @@ const Admin_login = () => {
           <form onSubmit={handleSubmit}>
 
             <input
-              placeholder='   Enter ID...'
+              placeholder='   Enter ID... (Demo: admin)'
               value={id}
               onChange={(e)=>setId(e.target.value)}
             />
 
             <input
               type='password'
-              placeholder='   Enter Password...'
+              placeholder='   Enter Password... (Demo: admin123)'
               value={password}
               onChange={(e)=>setPassword(e.target.value)}
             />

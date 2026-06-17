@@ -71,19 +71,25 @@ const Login_Page = () => {
 
         <h3>Login Page</h3>
 
+        <div style={{ display: 'flex', justifyContent: 'center', margin: '10px 0' }}>
+          <div style={{ padding: '8px 16px', backgroundColor: '#e0f2fe', color: '#0369a1', borderRadius: '8px', fontSize: '13px', textAlign: 'center', border: '1px solid #bae6fd', fontWeight: 'bold' }}>
+            💡 Demo Logins: Use dummy_doc, dummy_lab, dummy_med, or dummy_front (password is same as ID)
+          </div>
+        </div>
+
         <div>
           <form onSubmit={handleSubmit} className='login_input'>
 
             <input
               type='text'
-              placeholder='    Enter ID'
+              placeholder='    Enter ID (e.g. dummy_doc, dummy_lab...)'
               value={id}
               onChange={(e) => setId(e.target.value)}
             />
 
             <input
               type='password'
-              placeholder='    Enter Password'
+              placeholder='    Enter Password (same as ID)'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
