@@ -7,11 +7,17 @@ async function initDb() {
   const port = parseInt(process.env.DB_PORT || "3306");
   const user = process.env.DB_USER || "root";
   const password = process.env.DB_PASSWORD || "";
-  const databaseName = process.env.DB_NAME || "sync_care";
+  let databaseName = process.env.DB_NAME || "sync_care";
 
   const dbUrl = process.env.DATABASE_URL || process.env.MYSQL_URL;
   if (dbUrl) {
     console.log(`Connecting to MySQL database using connection URL...`);
+    try {
+      const parsedUrl = new URL(dbUrl);
+      databaseName = parsedUrl.pathname.substring(1).split("?")[0] || databaseName;
+    } catch (e) {
+      console.warn("Failed to parse database name from connection URL, using default.");
+    }
   } else {
     console.log(`Connecting to MySQL server at ${host}:${port} as ${user}...`);
   }
