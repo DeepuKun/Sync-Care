@@ -8,7 +8,7 @@ import { BrowserRouter } from 'react-router-dom'
 const API_URL = import.meta.env.VITE_API_URL || 
   (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" 
     ? "http://localhost:5000" 
-    : "https://noble-energy-production-e190.up.railway.app");
+    : "https://sync-care.onrender.com");
 
 // Global fetch interceptor to inject JWT token automatically and rewrite localhost/relative backend URLs
 const originalFetch = window.fetch;
