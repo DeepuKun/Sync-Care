@@ -26,8 +26,10 @@ const corsOptions = {
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"]
 };
-app.use(cors(corsOptions));  
-app.use(express.json()); 
+app.use(cors(corsOptions));
+app.use(express.json());
+
+console.log("PORT ENV =", process.env.PORT);
 
 // JWT authentication middleware
 const authenticateToken = (req, res, next) => {
@@ -956,6 +958,12 @@ app.put("/update-password/:id", authenticateToken, authorizeRoles("user", "admin
   }
 }); 
 
-app.listen(PORT, () => { 
-  console.log(`Server running on port ${PORT}`); 
+console.log("SERVER.JS STARTED");
+require("dotenv").config();
+
+console.log("ENV LOADED");
+console.log("PORT =", process.env.PORT);
+console.log("DATABASE_URL =", !!process.env.DATABASE_URL);
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server running on port ${PORT}`);
 });

@@ -1,7 +1,5 @@
 -- Database Schema for Sync-Care Hospital Management System
 
-CREATE DATABASE IF NOT EXISTS sync_care;
-USE sync_care;
 
 -- 1. Users Table (Auth credentials)
 CREATE TABLE IF NOT EXISTS users (
