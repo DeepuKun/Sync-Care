@@ -1,5 +1,5 @@
 import React from "react"
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Route, BrowserRouter, Routes,useLocation } from 'react-router-dom'
 import { AnimatePresence } from "framer-motion";
 import Doc_view from './pages/Doc_view'
@@ -50,9 +50,23 @@ import Front_lab_page from "./pages/Front_lab_page";
 import All_Lab_Test from "./pages/All_Lab_Test";
 import Lab_ready_queue from "./pages/Lab_ready_queue";
 import ProtectedRoute from "./components/ProtectedRoute";
+import LoadingOverlay from "./components/LoadingOverlay";
 
 function App() {
   const location = useLocation();
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const handleLoading = (e) => {
+      setLoading(e.detail.loading);
+    };
+
+    window.addEventListener('fetch-loading', handleLoading);
+    return () => {
+      window.removeEventListener('fetch-loading', handleLoading);
+    };
+  }, []);
+
   return (
     <div>
       <AnimatePresence mode="wait">
@@ -278,6 +292,7 @@ function App() {
         }/>
       </Routes>
       </AnimatePresence>
+      {loading && <LoadingOverlay />}
     </div>
   )
 }
