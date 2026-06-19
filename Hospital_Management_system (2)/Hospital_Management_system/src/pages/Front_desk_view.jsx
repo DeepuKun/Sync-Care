@@ -56,6 +56,7 @@ const Front_desk_view = () => {
   const [assignDocForm, setAssignDocForm] = useState({ patientId: '', doctorId: '' });
   const [sendLabForm, setSendLabForm] = useState({ patientId: '', testType: '', subType: '' });
   const [uploadForm, setUploadForm] = useState({ patientId: '', fileName: '', pdfFile: null });
+  const [bedsAvailable, setBedsAvailable] = useState(20);
 
   // Fetch all dashboard data
   const fetchData = async () => {
@@ -478,90 +479,6 @@ const Front_desk_view = () => {
                   {/* RIGHT SUB-COLUMN: Stats & Doctor statuses */}
                   <div className="dashboard-col-right">
 
-                    {/* 5. QUICK ACTIONS PANEL */}
-                    <div className="dashboard-card panel-quick-actions">
-                      <div className="panel-header">
-                        <h2>
-                          <FontAwesomeIcon icon={faPlus} className="header-icon" />
-                          Quick Actions
-                        </h2>
-                      </div>
-                      <div className="quick-actions-buttons-grid">
-                        <NavLink to='/add-patient' className="action-btn">
-                          <FontAwesomeIcon icon={faUserPlus} className="act-icon" />
-                          <span>Register Patient</span>
-                        </NavLink>
-                        
-                        <button onClick={() => setActiveModal('assignDoctor')} className="action-btn">
-                          <FontAwesomeIcon icon={faUserMd} className="act-icon" />
-                          <span>Assign Doctor</span>
-                        </button>
-                        
-                        <button onClick={() => setActiveModal('sendToLab')} className="action-btn">
-                          <FontAwesomeIcon icon={faFlask} className="act-icon" />
-                          <span>Send To Lab</span>
-                        </button>
-                        
-                        <NavLink to='/every-patients' className="action-btn">
-                          <FontAwesomeIcon icon={faUser} className="act-icon" />
-                          <span>All Patients</span>
-                        </NavLink>
-                        
-                        <button onClick={() => {
-                          const searchBox = document.querySelector('.front_desk_search_wrapper input');
-                          if (searchBox) searchBox.focus();
-                        }} className="action-btn">
-                          <FontAwesomeIcon icon={faSearch} className="act-icon" />
-                          <span>Search Patient</span>
-                        </button>
-                        
-                        <button onClick={() => setActiveModal('uploadResult')} className="action-btn">
-                          <FontAwesomeIcon icon={faUpload} className="act-icon" />
-                          <span>Upload Result</span>
-                        </button>
-                      </div>
-                    </div>
-
-                    {/* 6. TODAY'S ACTIVITY PANEL */}
-                    <div className="dashboard-card panel-activity">
-                      <div className="panel-header">
-                        <h2>
-                          <FontAwesomeIcon icon={faClipboardList} className="header-icon" />
-                          Today's Activity
-                        </h2>
-                      </div>
-                      <div className="activity-list">
-                        <div className="activity-item">
-                          <div className="activity-marker blue-dot"></div>
-                          <div className="activity-details">
-                            <span className="activity-title">Patients Registered Today</span>
-                            <span className="activity-value font-bold">{stats.totalPatients}</span>
-                          </div>
-                        </div>
-                        <div className="activity-item">
-                          <div className="activity-marker green-dot"></div>
-                          <div className="activity-details">
-                            <span className="activity-title">Patients Consulted</span>
-                            <span className="activity-value font-bold text-green">{stats.patientsConsulted}</span>
-                          </div>
-                        </div>
-                        <div className="activity-item">
-                          <div className="activity-marker purple-dot"></div>
-                          <div className="activity-details">
-                            <span className="activity-title">Lab Tests Completed</span>
-                            <span className="activity-value font-bold text-purple">{stats.labTestsCompleted}</span>
-                          </div>
-                        </div>
-                        <div className="activity-item">
-                          <div className="activity-marker orange-dot"></div>
-                          <div className="activity-details">
-                            <span className="activity-title">Prescriptions Issued</span>
-                            <span className="activity-value font-bold text-orange">{stats.prescriptionsIssued}</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
                     {/* 3. LAB TEST OVERVIEW */}
                     <div className="dashboard-card panel-lab-overview">
                       <div className="panel-header">
@@ -633,7 +550,12 @@ const Front_desk_view = () => {
         {/* FOOTER */}
         <div className='front_desk_footer'>
           <div className='front_desk_footer_left'>
-            <p>No. of beds available : 20</p>
+            <p>
+              No. of beds available : 
+              <button className="beds-adjust-btn" onClick={() => setBedsAvailable(prev => Math.max(0, prev - 1))}>-</button>
+              <span className="beds-count">{bedsAvailable}</span>
+              <button className="beds-adjust-btn" onClick={() => setBedsAvailable(prev => prev + 1)}>+</button>
+            </p>
             <p>Other Hospitals Contact Info : 9090123232, 849834980</p>
           </div>
           <div className='front_desk_footer_right'>
