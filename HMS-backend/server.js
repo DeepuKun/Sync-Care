@@ -585,7 +585,7 @@ app.get('/assigned-patients/:id', authenticateToken, authorizeRoles("lab_view", 
   }); 
 }); 
 
-app.post("/upload", authenticateToken, authorizeRoles("lab_view", "admin"), upload.single("pdf"), (req, res) => { 
+app.post("/upload", authenticateToken, authorizeRoles("lab_view", "front_desk_view", "admin"), upload.single("pdf"), (req, res) => { 
   const { patient_id, file_name } = req.body; 
   const file = req.file; 
 
@@ -958,6 +958,48 @@ app.put("/update-password/:id", authenticateToken, authorizeRoles("user", "admin
     res.status(500).json({ error: "Server error during password update" });
   }
 }); 
+
+// DASHBOARD STATS FOR FRONT DESK
+app.get('/dashboard-stats', authenticateToken, authorizeRoles("front_desk_view", "admin"), (req, res) => {
+  const sql = `
+    SELECT 
+      (SELECT COUNT(*) FROM patient_list) AS totalPatients,
+      (SELECT COUNT(*) FROM patient_list WHERE status = 'Waiting') AS waitingPatients,
+      (SELECT COUNT(*) FROM patient_list WHERE test_status IN ('Waiting', 'Assigned')) AS activeLabTests,
+      (SELECT COUNT(*) FROM doctors) AS availableDoctors,
+      (SELECT COUNT(*) FROM patient_list WHERE status IN ('Done', 'Completed')) AS patientsConsulted,
+      (SELECT COUNT(*) FROM patient_list WHERE test_status = 'Done') AS labTestsCompleted,
+      (SELECT COUNT(*) FROM prescription) AS prescriptionsIssued,
+      (SELECT COUNT(*) FROM lab) AS totalLabTests,
+      (SELECT COUNT(*) FROM results) AS resultsUploaded
+  `;
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error("Error fetching dashboard stats:", err);
+      return res.status(500).json({ error: "Database error fetching stats" });
+    }
+    res.json(results[0]);
+  });
+});
+
+// ASSIGN DOCTOR ENDPOINT FOR FRONT DESK
+app.put('/assign-doctor', authenticateToken, authorizeRoles("front_desk_view", "admin"), (req, res) => {
+  const { patient_id, doc_assigned, specialization } = req.body;
+  if (!patient_id || !doc_assigned || !specialization) {
+    return res.status(400).json({ error: "Missing required fields: patient_id, doc_assigned, specialization" });
+  }
+  const sql = "UPDATE patient_list SET doc_assigned = ?, specialization = ?, status = 'Waiting' WHERE patient_id = ?";
+  db.query(sql, [doc_assigned, specialization, patient_id], (err, result) => {
+    if (err) {
+      console.error("Error assigning doctor:", err);
+      return res.status(500).json({ error: "Database error assigning doctor" });
+    }
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ error: "Patient not found" });
+    }
+    res.json({ message: "Doctor assigned successfully ✅" });
+  });
+});
 
 console.log("SERVER.JS STARTED");
 require("dotenv").config();
