@@ -1,4 +1,4 @@
-# 🏥 Sync-Care: Modern Hospital Management System
+# Sync-Care: Modern Hospital Management System
 
 Sync-Care is a full-stack, role-based Hospital Management System (HMS) designed to streamline healthcare workflows. It connects patients, doctors, front desk staff, lab technicians, pharmacists, and administrators under a single unified platform.
 
