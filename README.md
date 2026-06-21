@@ -18,7 +18,7 @@ Sync-Care is built using a modern decoupled architecture:
 ## 📸 Screenshots & Interface Previews
 
 > [!TIP]
-> Add your screenshot images to a `./screenshots/` directory in the repository to display them here.
+> Add your screenshots here
 
 ### 1. Landing Page / Login Selection
 ![Landing Page](./screenshots/landing_page.png)
