@@ -168,7 +168,7 @@ graph TD
 
 ---
 
-## 🚀 Cloud Deployment Instructions
+## Cloud Deployment Instructions
 
 ### Deploying the Backend on Render
 1. Set up a **MySQL database** (on Render or Railway) and copy its connection URL.
