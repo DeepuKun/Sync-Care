@@ -67,3 +67,13 @@
     transform: scale(1.02);
   }
 }
+
+.loading-subtext {
+  margin-top: 15px;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #64748b;
+  text-align: center;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  animation: fadeInOverlay 0.5s ease-out forwards;
+}

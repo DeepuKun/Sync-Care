@@ -97,6 +97,15 @@ window.fetch = async function (resource, init) {
   }
 };
 
+// Silent ping to wake up the server immediately (mitigate Render cold-starts)
+const wakeUpServer = () => {
+  const pingUrl = API_URL.startsWith('http') ? API_URL : `https://sync-care-backend-x7nw.onrender.com`;
+  originalFetch(pingUrl)
+    .then(() => console.log("Backend server pinged successfully for wakeup."))
+    .catch((err) => console.warn("Failed to ping backend server for wakeup:", err));
+};
+wakeUpServer();
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
