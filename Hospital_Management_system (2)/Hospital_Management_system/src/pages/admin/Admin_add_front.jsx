@@ -26,17 +26,17 @@ const Admin_add_front = () => {
       const data = await res.json();
 
       if (res.ok) {
-        alert('Front Desk Added Successfully 👩‍💼🔥');
+        alert('Front Desk Added Successfully');
         setName('');
         setAadhar('');
         setPassword('');
       } else {
-        alert(data || 'Error adding front desk 💀');
+        alert(data || 'Error adding front desk');
       }
 
     } catch (err) {
       console.error(err);
-      alert('Server error bro 😭');
+      alert('Server error bro');
     }
   };
 
@@ -69,7 +69,7 @@ const Admin_add_front = () => {
             required
           />
 
-          {/* 🔥 PASSWORD FIX */}
+          {/* PASSWORD FIX */}
           <input 
             type="password"
             placeholder='   Enter Password...'

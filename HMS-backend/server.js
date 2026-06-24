@@ -68,7 +68,7 @@ const authorizeRoles = (...allowedRoles) => {
 app.get("/", (req, res) => { 
   res.status(200).json({
     status: "healthy",
-    message: "Sync-Care Backend is running 🚀",
+    message: "Sync-Care Backend is running",
     timestamp: new Date()
   }); 
 }); 
@@ -231,7 +231,7 @@ app.post("/add-patient", authenticateToken, authorizeRoles("front_desk_view", "a
             console.error("Failed to insert user login account for patient:", userErr);
           }
           res.status(201).json({ 
-            message: "Patient added successfully ✅", 
+            message: "Patient added successfully",
             patientId: patient_id, 
           }); 
         });
@@ -590,7 +590,7 @@ app.post("/upload", authenticateToken, authorizeRoles("lab_view", "front_desk_vi
   const file = req.file; 
 
   if (!file || !patient_id || !file_name) { 
-    return res.status(400).send("Missing data 😤"); 
+    return res.status(400).send("Missing data");
   } 
 
   try { 
@@ -602,15 +602,15 @@ app.post("/upload", authenticateToken, authorizeRoles("lab_view", "front_desk_vi
       (err, result) => { 
         if (err) { 
           console.error(err); 
-          return res.status(500).send("DB error 💀"); 
+          return res.status(500).send("DB error");
         } 
         fs.unlinkSync(file.path); 
-        res.send("Upload successful 😎🔥"); 
+        res.send("Upload successful");
       } 
     ); 
   } catch (err) { 
     console.error(err); 
-    res.status(500).send("Server error 💀"); 
+    res.status(500).send("Server error");
   } 
 }); 
 
@@ -626,7 +626,7 @@ app.get("/results/:patient_id", authenticateToken, authorizeRoles("user", "lab_v
     (err, results) => { 
       if (err) { 
         console.error(err); 
-        return res.status(500).send("Error fetching results 💀"); 
+        return res.status(500).send("Error fetching results");
       } 
       res.json(results); 
     } 
@@ -642,11 +642,11 @@ app.get("/download/:id", authenticateToken, (req, res) => {
     (err, results) => { 
       if (err) { 
         console.error(err); 
-        return res.status(500).send("Error downloading file 💀"); 
+        return res.status(500).send("Error downloading file");
       } 
 
       if (results.length === 0) { 
-        return res.status(404).send("File not found 😔"); 
+        return res.status(404).send("File not found");
       } 
 
       const file = results[0]; 
@@ -667,7 +667,7 @@ app.put("/update-test-status", authenticateToken, authorizeRoles("lab_view", "ad
   const { patient_id, status } = req.body; 
 
   if (!patient_id || !status) { 
-    return res.status(400).send("Missing data 😤"); 
+    return res.status(400).send("Missing data");
   } 
 
   db.query( 
@@ -676,9 +676,9 @@ app.put("/update-test-status", authenticateToken, authorizeRoles("lab_view", "ad
     (err, result) => { 
       if (err) { 
         console.error(err); 
-        return res.status(500).send("DB error 💀"); 
+        return res.status(500).send("DB error");
       } 
-      res.send("Status updated successfully 😎🔥"); 
+      res.send("Status updated successfully");
     } 
   ); 
 }); 
@@ -689,7 +689,7 @@ app.get("/lab-ready-patients", authenticateToken, authorizeRoles("lab_view", "ad
     (err, results) => { 
       if (err) { 
         console.error(err); 
-        return res.status(500).send("Error fetching ready patients 💀"); 
+        return res.status(500).send("Error fetching ready patients");
       } 
       res.json(results); 
     } 
@@ -997,7 +997,7 @@ app.put('/assign-doctor', authenticateToken, authorizeRoles("front_desk_view", "
     if (result.affectedRows === 0) {
       return res.status(404).json({ error: "Patient not found" });
     }
-    res.json({ message: "Doctor assigned successfully ✅" });
+    res.json({ message: "Doctor assigned successfully " });
   });
 });
 

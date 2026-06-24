@@ -13,7 +13,7 @@ const User_login = () => {
     e.preventDefault();
 
     if (!id || !password) {
-      alert("Fill all fields 😤");
+      alert("Fill all fields");
       return;
     }
 
@@ -26,7 +26,7 @@ const User_login = () => {
         body: JSON.stringify({
           id,
           password,
-          role: "user" // 🔥 IMPORTANT
+          role: "user" // IMPORTANT
         })
       });
 
@@ -38,12 +38,12 @@ const User_login = () => {
         localStorage.setItem("userId", data.user_id);
         navigate(`/user`);
       } else {
-        alert(data.message || "Login failed 😭");
+        alert(data.message || "Login failed");
       }
 
     } catch (err) {
       console.error(err);
-      alert("Server error 😭");
+      alert("Server error");
     }
   };
 

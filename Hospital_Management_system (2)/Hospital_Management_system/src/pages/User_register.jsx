@@ -13,17 +13,17 @@ const User_register = () => {
     e.preventDefault();
 
     if (!patientId || !password || !confirmPassword) {
-      alert("Please fill all fields 😤");
+      alert("Please fill all fields");
       return;
     }
 
     if (password !== confirmPassword) {
-      alert("Passwords do not match ❌");
+      alert("Passwords do not match");
       return;
     }
 
     if (password.length < 6) {
-      alert("Password must be at least 6 characters long 🔒");
+      alert("Password must be at least 6 characters long");
       return;
     }
 
@@ -42,14 +42,14 @@ const User_register = () => {
       const data = await res.json();
 
       if (res.ok) {
-        alert("Registration successful! 🎉 Please login.");
+        alert("Registration successful! Please login.");
         navigate('/User_login');
       } else {
-        alert(data.error || "Registration failed 😭");
+        alert(data.error || "Registration failed");
       }
     } catch (err) {
       console.error(err);
-      alert("Server error 😭");
+      alert("Server error");
     }
   };
 

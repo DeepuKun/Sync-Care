@@ -22,7 +22,7 @@ const LoadingOverlay = () => {
         <div className="loading-text">Loading...</div>
         {showSlowMessage && (
           <div className="loading-subtext">
-            Connecting to the backend server. Since the server spins down when idle, the first connection may take up to a minute to wake up. Thank you for your patience! 🩺⏳
+            Connecting to the backend server. Since the server spins down when idle, the first connection may take up to a minute to wake up. Thank you for your patience!
           </div>
         )}
       </div>

@@ -4,7 +4,7 @@ Sync-Care is a full-stack, role-based Hospital Management System (HMS) designed 
 
 ---
 
-## 🏗️ Project Architecture
+## Project Architecture
 
 Sync-Care is built using a modern decoupled architecture:
 
@@ -15,7 +15,7 @@ Sync-Care is built using a modern decoupled architecture:
 
 ---
 
-## 📸 Screenshots & Interface Previews
+## Screenshots & Interface Previews
 
 > [!TIP]
 > Add your screenshots here
@@ -37,7 +37,7 @@ Sync-Care is built using a modern decoupled architecture:
 
 ---
 
-## 🔑 Demo Login Credentials
+## Demo Login Credentials
 
 For testing and review, use these pre-seeded demo accounts (passwords are identical to their respective IDs):
 
@@ -52,7 +52,7 @@ For testing and review, use these pre-seeded demo accounts (passwords are identi
 
 ---
 
-## 🔄 Core Workflows (User Journeys)
+## Core Workflows (User Journeys)
 
 Here is how the distinct modules interact dynamically:
 
@@ -117,7 +117,7 @@ graph TD
 
 ---
 
-## ⚙️ How to Run Locally
+## How to Run Locally
 
 ### Prerequisites
 * **Node.js** (v16.x or higher recommended)

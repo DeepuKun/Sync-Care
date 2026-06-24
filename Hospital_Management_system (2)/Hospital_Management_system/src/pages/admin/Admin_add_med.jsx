@@ -27,17 +27,17 @@ const Admin_add_med = () => {
       const data = await res.json();
 
       if (res.ok) {
-        alert('Medicine Dept Added 💊🔥');
+        alert('Medicine Dept Added');
         setMedId('');
         setName('');
         setPassword('');
       } else {
-        alert(data || 'Error 💀');
+        alert(data || 'Error');
       }
 
     } catch (err) {
       console.error(err);
-      alert('Server error 😭');
+      alert('Server error');
     }
   };
 

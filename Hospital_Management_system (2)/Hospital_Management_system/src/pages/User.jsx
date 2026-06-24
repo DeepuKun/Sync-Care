@@ -83,7 +83,7 @@ const User = () => {
   const [results, setResults] = useState([]);
   const [patientDetails, setPatientDetails] = useState({});
 
-  // ✅ PASSWORD STATES
+  // PASSWORD STATES
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
 
@@ -103,7 +103,7 @@ const User = () => {
       .then(res => res.json())
       .then(data => setPatientDetails(data));
 
-    // ✅ FETCH CURRENT PASSWORD
+    // FETCH CURRENT PASSWORD
     fetch(`http://localhost:5000/user-password/${id}`)
       .then(res => res.json())
       .then(data => setCurrentPassword(data.password));
@@ -120,7 +120,7 @@ const User = () => {
     })
     .then(res => res.json())
     .then(() => {
-      alert("Password Updated ✅");
+      alert("Password Updated");
       setCurrentPassword(newPassword); // update UI instantly
       setNewPassword("");
     });
@@ -135,7 +135,7 @@ const User = () => {
 >
 <div className="user_main_layout">
 
-  {/* ✅ SIDEBAR */}
+  {/* SIDEBAR */}
   <div className={`user_sidebar ${showSidebar ? "active" : ""}`}>
     <h2>Patient Info</h2>
 
@@ -150,7 +150,7 @@ const User = () => {
 
     <hr />
 
-    {/* 🔥 CURRENT PASSWORD DISPLAY */}
+    {/* CURRENT PASSWORD DISPLAY */}
     <h3>Current Password</h3>
     <p className="current_password">
   {patientDetails.password}
@@ -227,7 +227,7 @@ const User = () => {
           <h3>Your Lab Test Results:</h3>
 
           {results.length === 0 ? (
-            <p>No results yet 😔</p>
+            <p>No results yet</p>
           ) : (
             results.map((res) => (
               <div key={res.result_id}>

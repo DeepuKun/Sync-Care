@@ -322,7 +322,7 @@ const Front_desk_view = () => {
             {loading ? (
               <div className="dashboard-loading">
                 <div className="spinner"></div>
-                <p>Syncing dashboard with Everlight database... ⏳</p>
+                <p>Syncing dashboard with Everlight database...</p>
               </div>
             ) : (
               <div className="dashboard-grid">
@@ -559,7 +559,7 @@ const Front_desk_view = () => {
             <p>Other Hospitals Contact Info : 9090123232, 849834980</p>
           </div>
           <div className='front_desk_footer_right'>
-            <button className="btn-emergency" onClick={() => alert("EMERGENCY BROADCAST TRANSMITTED! 🚨 All departments alerted.")}>EMERGENCY!</button>
+            <button className="btn-emergency" onClick={() => alert("EMERGENCY BROADCAST TRANSMITTED! All departments alerted.")}>EMERGENCY!</button>
           </div>
         </div>
       </div>

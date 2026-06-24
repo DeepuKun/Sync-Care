@@ -13,7 +13,7 @@ const Admin_login = () => {
     e.preventDefault();
 
     if (!id || !password) {
-      alert("Fill all fields 😤");
+      alert("Fill all fields");
       return;
     }
 
@@ -26,7 +26,7 @@ const Admin_login = () => {
         body: JSON.stringify({
           id,
           password,
-          role: "admin" // 🔥 FIXED ROLE
+          role: "admin" // FIXED ROLE
         })
       });
 
@@ -36,14 +36,14 @@ const Admin_login = () => {
         localStorage.setItem("token", data.token);
         localStorage.setItem("role", data.role);
         localStorage.setItem("userId", data.user_id);
-        navigate(`/admin`); // 🔥 go to admin dashboard
+        navigate(`/admin`); // go to admin dashboard
       } else {
-        alert(data.message || "Login failed 😭");
+        alert(data.message || "Login failed");
       }
 
     } catch (err) {
       console.error(err);
-      alert("Server error 😭");
+      alert("Server error");
     }
   };
 
@@ -62,7 +62,7 @@ const Admin_login = () => {
       <div>
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '15px' }}>
           <div style={{ padding: '8px 16px', backgroundColor: '#fee2e2', color: '#991b1b', borderRadius: '8px', fontSize: '13px', textAlign: 'center', border: '1px solid #fecaca', fontWeight: 'bold' }}>
-            🔑 Admin Demo Login: Use ID "admin" & Password "admin123"
+            Admin Demo Login: Use ID "admin" & Password "admin123"
           </div>
         </div>
 

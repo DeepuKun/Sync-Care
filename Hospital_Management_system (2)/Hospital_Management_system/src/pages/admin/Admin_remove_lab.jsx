@@ -8,7 +8,7 @@ const Admin_remove_lab = () => {
     e.preventDefault();
 
     if (!labId) {
-      alert("Enter Lab Tech ID 💀");
+      alert("Enter Lab Tech ID");
       return;
     }
 
@@ -20,15 +20,15 @@ const Admin_remove_lab = () => {
       const data = await res.json();
 
       if (res.ok) {
-        alert("Lab Tech Removed Successfully 🧪🔥");
+        alert("Lab Tech Removed Successfully");
         setLabId('');
       } else {
-        alert(data || "Error deleting lab tech 💀");
+        alert(data || "Error deleting lab tech");
       }
 
     } catch (err) {
       console.error(err);
-      alert("Server error bro 😭");
+      alert("Server error bro");
     }
   };
 

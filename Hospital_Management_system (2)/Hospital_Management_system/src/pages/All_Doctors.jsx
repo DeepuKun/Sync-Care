@@ -25,8 +25,8 @@ const All_Doctors = () => {
     fetchPatients();
   }, []);
 
-  if (loading) return <div>Loading patients... ⏳</div>;
-  if (error) return <div>Error: {error} ❌</div>;
+  if (loading) return <div>Loading patients...</div>;
+  if (error) return <div>Error: {error}</div>;
 
   return (
     <>

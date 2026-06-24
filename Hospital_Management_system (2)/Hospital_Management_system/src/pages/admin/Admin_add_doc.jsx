@@ -56,18 +56,18 @@ const Admin_add_doc = () => {
       const data = await res.json();
 
       if (res.ok) {
-        alert('Doctor Added Successfully 😤🔥');
+        alert('Doctor Added Successfully');
         setDocId('');
         setName('');
         setSpecialization('');
         setPassword('');
       } else {
-        alert(data || 'Error adding doctor 💀');
+        alert(data || 'Error adding doctor');
       }
 
     } catch (err) {
       console.error(err);
-      alert('Server error bro 😭');
+      alert('Server error bro');
     }
   };
 

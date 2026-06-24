@@ -25,8 +25,8 @@ const All_patients = () => {
     fetchPatients();
   }, []);
 
-  if (loading) return <div>Loading patients... ⏳</div>;
-  if (error) return <div>Error: {error} ❌</div>;
+  if (loading) return <div>Loading patients...</div>;
+  if (error) return <div>Error: {error}</div>;
 
   return (
     <>
@@ -42,7 +42,7 @@ const All_patients = () => {
     <div className='all-patients' style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
       <h1>All Patients</h1>
       {patients.length === 0 ? (
-        <p>No patients found 😢</p>
+        <p>No patients found</p>
       ) : (
         <table style={{ width: '70%', borderCollapse: 'collapse' }}>
           <thead>

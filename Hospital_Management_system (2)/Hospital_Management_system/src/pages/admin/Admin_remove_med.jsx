@@ -9,7 +9,7 @@ const Admin_remove_med = () => {
     e.preventDefault();
 
     if (!medId) {
-      alert("Enter Med Dept ID 💀");
+      alert("Enter Med Dept ID");
       return;
     }
 
@@ -21,15 +21,15 @@ const Admin_remove_med = () => {
       const data = await res.json();
 
       if (res.ok) {
-        alert("Medicine Dept Removed Successfully 💊🔥");
+        alert("Medicine Dept Removed Successfully");
         setMedId('');
       } else {
-        alert(data || "Error deleting med dept 💀");
+        alert(data || "Error deleting med dept");
       }
 
     } catch (err) {
       console.error(err);
-      alert("Server error bro 😭");
+      alert("Server error bro");
     }
   };
 

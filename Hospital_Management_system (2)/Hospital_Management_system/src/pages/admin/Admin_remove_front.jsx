@@ -9,7 +9,7 @@ const Admin_remove_front = () => {
     e.preventDefault();
 
     if (!frontId) {
-      alert("Enter Front Desk ID 💀");
+      alert("Enter Front Desk ID");
       return;
     }
 
@@ -21,15 +21,15 @@ const Admin_remove_front = () => {
       const data = await res.json();
 
       if (res.ok) {
-        alert("Front Desk Removed Successfully 👩‍💼🔥");
+        alert("Front Desk Removed Successfully");
         setFrontId('');
       } else {
-        alert(data || "Error deleting front desk 💀");
+        alert(data || "Error deleting front desk");
       }
 
     } catch (err) {
       console.error(err);
-      alert("Server error bro 😭");
+      alert("Server error bro");
     }
   };
 

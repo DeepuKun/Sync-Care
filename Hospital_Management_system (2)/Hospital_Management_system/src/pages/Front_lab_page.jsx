@@ -25,7 +25,7 @@ const Front_lab_page = () => {
       throw new Error(data.message || "Something went wrong");
     }
 
-    alert("Lab Technician assigned successfully 😎🔥");
+    alert("Lab Technician assigned successfully");
     console.log(data);
 
   } catch (err) {

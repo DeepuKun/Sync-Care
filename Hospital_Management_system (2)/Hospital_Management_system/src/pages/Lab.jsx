@@ -7,7 +7,7 @@
 //   const [patients, setPatients] = useState([]);
 //   const {id} = useParams();
 
-//   // ✅ NEW STATES
+// // NEW STATES
 //   const [patientId, setPatientId] = useState("");
 //   const [file, setFile] = useState(null);
 
@@ -20,10 +20,10 @@
 //     fetchPatients();
 //   },[])
 
-//   // ✅ UPLOAD FUNCTION
+// // UPLOAD FUNCTION
 //   const handleUpload = async () => {
 //     if (!file || !patientId ) {
-//       alert("Fill everything bro 😤");
+// alert("Fill everything bro");
 //       return;
 //     }
 
@@ -126,7 +126,7 @@ const Lab = () => {
   const [patients, setPatients] = useState([]);
   const id = localStorage.getItem("userId");
 
-  // ✅ STATES
+  // STATES
   const [patientId, setPatientId] = useState("");
   const [file, setFile] = useState(null);
 
@@ -139,10 +139,10 @@ const Lab = () => {
     fetchPatients();
   },[])
 
-  // ✅ UPLOAD FUNCTION
+  // UPLOAD FUNCTION
   const handleUpload = async () => {
     if (!file || !patientId ) {
-      alert("Fill everything bro 😤");
+      alert("Fill everything bro");
       return;
     }
 
@@ -164,7 +164,7 @@ const Lab = () => {
     }
   };
 
-  // ✅ NEW FUNCTION (status update)
+  // NEW FUNCTION (status update)
   const updateStatus = async (patient_id, status) => {
     try {
       const res = await fetch("http://localhost:5000/update-test-status", {

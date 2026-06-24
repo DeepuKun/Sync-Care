@@ -188,18 +188,18 @@ background-color: red;
   color: white;
   padding: 20px;
   
-  /* 🔥 HIDDEN STATE */
+  /* HIDDEN STATE */
   transform: translateX(-100%);
   opacity: 0;
 
-  /* 🔥 SMOOTH ANIMATION */
+  /* SMOOTH ANIMATION */
   transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
               opacity 0.3s ease;
 
   z-index: 1000;
 }
 
-/* 🔥 ACTIVE SIDEBAR */
+/* ACTIVE SIDEBAR */
 .user_sidebar.active {
   transform: translateX(0);
   opacity: 1;
@@ -216,7 +216,7 @@ background-color: red;
   transform: translateX(120px);
 }
 
-/* 🔥 OVERLAY FADE */
+/* OVERLAY FADE */
 .overlay {
   position: fixed;
   top: 0;
@@ -237,7 +237,7 @@ background-color: red;
   }
 }
 
-/* 🔥 SIDEBAR CONTENT STYLE */
+/* SIDEBAR CONTENT STYLE */
 .user_sidebar h2 {
   margin-bottom: 15px;
 }
@@ -248,7 +248,7 @@ background-color: red;
   opacity: 0.9;
 }
 
-/* 🔥 INPUT + BUTTON */
+/* INPUT + BUTTON */
 .user_sidebar input {
   width: 100%;
   padding: 8px;
@@ -270,7 +270,7 @@ background-color: red;
   transition: transform 0.2s ease, background 0.2s ease;
 }
 
-/* 🔥 BUTTON HOVER MICRO-INTERACTION */
+/* BUTTON HOVER MICRO-INTERACTION */
 .user_sidebar button:hover {
   transform: scale(1.05);
   background: #16a34a;

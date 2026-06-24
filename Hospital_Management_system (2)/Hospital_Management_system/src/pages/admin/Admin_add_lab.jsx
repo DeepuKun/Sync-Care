@@ -48,18 +48,18 @@ const Admin_add_lab = () => {
       const data = await res.json();
 
       if (res.ok) {
-        alert('Lab Tech Added Successfully 🧪🔥');
+        alert('Lab Tech Added Successfully');
         setLabTechId('');
         setName('');
         setDepartment('');
         setPassword('');
       } else {
-        alert(data || 'Error adding lab tech 💀');
+        alert(data || 'Error adding lab tech');
       }
 
     } catch (err) {
       console.error(err);
-      alert('Server error bro 😭');
+      alert('Server error bro');
     }
   };
 
@@ -92,13 +92,13 @@ const Admin_add_lab = () => {
             required
           />
 
-          {/* ✅ DROPDOWN FIX (NO TYPING ERRORS ANYMORE) */}
+          {/* DROPDOWN FIX (NO TYPING ERRORS ANYMORE) */}
           <select
             value={department}
             onChange={(e) => setDepartment(e.target.value)}
             required
           >
-            <option value="">Select Department 🧪</option>
+            <option value="">Select Department</option>
             <option value="Hematology">Hematology</option>
             <option value="Microbiology">Microbiology</option>
             <option value="Immunology">Immunology</option>

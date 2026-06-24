@@ -26,10 +26,10 @@ const Login_choice = () => {
          <h3>Welcome to <span className='synccare'>SyncCare</span>, </h3>
          <h5>the official web-portal for...</h5>
          <h1>Ever<span className='light'>light</span> Hospital</h1>
-         <p>✔ 24/7 Emergency  
-✔ Expert Doctors  
-✔ Digital Prescriptions  
-✔ Easy Access
+         <p>24/7 Emergency
+Expert Doctors
+Digital Prescriptions
+Easy Access
 </p>
          <br></br>
          <h4>Please select your login type to continue.</h4>

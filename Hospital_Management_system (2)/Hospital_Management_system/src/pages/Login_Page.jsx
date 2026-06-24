@@ -14,9 +14,9 @@ const Login_Page = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // 🔥 basic validation
+    // basic validation
     if (!id || !password || role === "no_role") {
-      alert("Please fill all fields and select a role 😤");
+      alert("Please fill all fields and select a role");
       return;
     }
 
@@ -36,18 +36,18 @@ const Login_Page = () => {
       const data = await res.json();
 
       if (res.ok) {
-        // ✅ login success
+        // login success
         localStorage.setItem("token", data.token);
         localStorage.setItem("role", data.role);
         localStorage.setItem("userId", data.user_id);
         navigate(`/${role}`);
       } else {
-        alert(data.message || "Login failed 😭");
+        alert(data.message || "Login failed");
       }
 
     } catch (err) {
       console.error(err);
-      alert("Server error 😭");
+      alert("Server error");
     }
   };
 
@@ -73,7 +73,7 @@ const Login_Page = () => {
 
         <div style={{ display: 'flex', justifyContent: 'center', margin: '10px 0' }}>
           <div style={{ padding: '8px 16px', backgroundColor: '#e0f2fe', color: '#0369a1', borderRadius: '8px', fontSize: '13px', textAlign: 'center', border: '1px solid #bae6fd', fontWeight: 'bold' }}>
-            💡 Demo Logins: Use dummy_doc, dummy_lab, dummy_med, or dummy_front (password is same as ID)
+            Demo Logins: Use dummy_doc, dummy_lab, dummy_med, or dummy_front (password is same as ID)
           </div>
         </div>
 

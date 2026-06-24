@@ -8,7 +8,7 @@ const Admin_remove_doc = () => {
     e.preventDefault();
 
     if (!docId) {
-      alert("Enter Doctor ID 💀");
+      alert("Enter Doctor ID");
       return;
     }
 
@@ -20,15 +20,15 @@ const Admin_remove_doc = () => {
       const data = await res.json();
 
       if (res.ok) {
-        alert("Doctor Removed Successfully 🗑️🔥");
+        alert("Doctor Removed Successfully");
         setDocId('');
       } else {
-        alert(data || "Error deleting doctor 💀");
+        alert(data || "Error deleting doctor");
       }
 
     } catch (err) {
       console.error(err);
-      alert("Server error bro 😭");
+      alert("Server error bro");
     }
   };
 
