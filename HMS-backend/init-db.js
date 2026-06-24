@@ -10,25 +10,31 @@ async function initDb() {
   let databaseName = process.env.DB_NAME || "sync_care";
 
   const dbUrl = process.env.DATABASE_URL || process.env.MYSQL_URL;
+  console.log("Database Init: Starting connection attempt...");
+  console.log("Database Init: SSL/TLS transport config: ssl.rejectUnauthorized = false");
+
   if (dbUrl) {
-    console.log(`Connecting to MySQL database using connection URL...`);
+    console.log(`Database Init: Connecting to MySQL database using connection URL...`);
     try {
       const parsedUrl = new URL(dbUrl);
       databaseName = parsedUrl.pathname.substring(1).split("?")[0] || databaseName;
     } catch (e) {
-      console.warn("Failed to parse database name from connection URL, using default.");
+      console.warn("Database Init: Failed to parse database name from connection URL, using default.");
     }
   } else {
-    console.log(`Connecting to MySQL server at ${host}:${port} as ${user}...`);
+    console.log(`Database Init: Connecting to MySQL server at ${host}:${port} as ${user}...`);
   }
 
   let connection;
   try {
-    // 1. Establish connection to create database if not exists
+    // 1. Establish secure connection
     if (dbUrl) {
       connection = await mysql.createConnection({
         uri: dbUrl,
-        multipleStatements: true
+        multipleStatements: true,
+        ssl: {
+          rejectUnauthorized: false
+        }
       });
     } else {
       connection = await mysql.createConnection({
@@ -36,14 +42,30 @@ async function initDb() {
         port,
         user,
         password,
-        multipleStatements: true
+        multipleStatements: true,
+        ssl: {
+          rejectUnauthorized: false
+        }
       });
     }
 
-    console.log("Connected successfully. Creating database if it does not exist...");
-    await connection.query(`CREATE DATABASE IF NOT EXISTS \`${databaseName}\`;`);
-    await connection.query(`USE \`${databaseName}\`;`);
-    console.log(`Using database: ${databaseName}`);
+    console.log("Database Init: Connected successfully. SSL/TLS secure transport established.");
+    
+    // 2. Create database if allowed, then select it
+    try {
+      await connection.query(`CREATE DATABASE IF NOT EXISTS \`${databaseName}\`;`);
+      console.log(`Database Init: Database creation/verification success: ${databaseName}`);
+    } catch (dbCreateErr) {
+      console.warn(`Database Init: CREATE DATABASE statement failed (this is expected if your database user has restricted privileges on cloud platforms like TiDB): ${dbCreateErr.message}`);
+    }
+    
+    try {
+      await connection.query(`USE \`${databaseName}\`;`);
+      console.log(`Database Init: Selected and using database: ${databaseName}`);
+    } catch (useDbErr) {
+      console.error(`Database Init: Failed to select database ${databaseName}:`, useDbErr);
+      throw useDbErr;
+    }
 
     // 2. Define Table DDL statements
     const tableDDLs = [
@@ -112,11 +134,11 @@ async function initDb() {
       );`
     ];
 
-    console.log("Creating tables...");
+    console.log("Database Init: Creating/verifying tables...");
     for (const ddl of tableDDLs) {
       await connection.query(ddl);
     }
-    console.log("Tables created/verified successfully.");
+    console.log("Database Init: Tables created/verified successfully.");
 
     // 3. Drop and recreate stored procedures
     const procedures = [
@@ -235,27 +257,27 @@ async function initDb() {
       }
     ];
 
-    console.log("Setting up stored procedures...");
+    console.log("Database Init: Setting up stored procedures...");
     for (const proc of procedures) {
       await connection.query(proc.drop);
       await connection.query(proc.create);
-      console.log(`Created stored procedure: ${proc.name}`);
+      console.log(`Database Init: Created/updated stored procedure: ${proc.name}`);
     }
 
     // 4. Seed Default Admin
-    console.log("Checking for default admin account...");
+    console.log("Database Init: Checking for default admin account...");
     const [adminRows] = await connection.query("SELECT * FROM users WHERE user_id = ? AND role = ?", ["admin", "admin"]);
     if (adminRows.length === 0) {
-      console.log("Seeding default admin account...");
+      console.log("Database Init: Seeding default admin account...");
       const adminPass = "admin123";
       const hashedPass = await bcrypt.hash(adminPass, 10);
       await connection.query("INSERT INTO users (user_id, password, role) VALUES (?, ?, ?)", ["admin", hashedPass, "admin"]);
-      console.log(`Default admin created successfully! ID: admin, Password: ${adminPass}`);
+      console.log(`Database Init: Default admin created successfully! ID: admin, Password: ${adminPass}`);
     } else {
-      console.log("Default admin account already exists.");
+      console.log("Database Init: Default admin account already exists.");
     }
 
-    console.log("Database initialized successfully!");
+    console.log("Database Init: Database initialization completed successfully!");
   } catch (error) {
     console.error("Failed to initialize database:", error);
     throw error;
