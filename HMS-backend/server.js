@@ -739,17 +739,38 @@ app.post('/add-doctor', authenticateToken, authorizeRoles("admin"), async (req, 
 
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
-    const query = `CALL AddDoctor(?, ?, ?, ?)`; 
-    db.query(query, [doc_id, doc_name, specialization, hashedPassword], (err, result) => { 
-      if (err) { 
-        console.log("Error:", err); 
-        if (err.sqlMessage) { 
-          return res.status(400).json(err.sqlMessage); 
+    db.query(
+      `INSERT INTO doctors (doc_id, doc_name, specialization) 
+       VALUES (?, ?, ?) 
+       ON DUPLICATE KEY UPDATE doc_name = ?, specialization = ?`,
+      [doc_id, doc_name, specialization, doc_name, specialization],
+      (err, result) => { 
+        if (err) { 
+          console.log("Error:", err); 
+          if (err.sqlMessage) { 
+            return res.status(400).json(err.sqlMessage); 
+          } 
+          return res.status(500).json("Database error "); 
         } 
-        return res.status(500).json("Database error "); 
-      } 
-      res.status(200).json("Doctor added successfully "); 
-    }); 
+        
+        db.query(
+          `INSERT INTO users (user_id, password, role) 
+           VALUES (?, ?, 'doctor_view') 
+           ON DUPLICATE KEY UPDATE password = ?, role = 'doctor_view'`,
+          [doc_id, hashedPassword, hashedPassword],
+          (err2, result2) => {
+            if (err2) {
+              console.log("Error:", err2);
+              if (err2.sqlMessage) {
+                return res.status(400).json(err2.sqlMessage);
+              }
+              return res.status(500).json("Database error ");
+            }
+            res.status(200).json("Doctor added successfully "); 
+          }
+        );
+      }
+    ); 
   } catch (error) {
     console.error(error);
     res.status(500).json("Server error during registration");
@@ -765,10 +786,11 @@ app.post('/add-lab-tech', authenticateToken, authorizeRoles("admin"), async (req
   
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
-    const query = `CALL AddLabTech(?, ?, ?, ?, ?)`; 
     db.query( 
-      query, 
-      [lab_tech_id, name, department, hashedPassword, role], 
+      `INSERT INTO lab_test (lab_tech_id, name, department) 
+       VALUES (?, ?, ?) 
+       ON DUPLICATE KEY UPDATE name = ?, department = ?`, 
+      [lab_tech_id, name, department, name, department], 
       (err, result) => { 
         if (err) { 
           console.log("DB Error:", err); 
@@ -777,7 +799,23 @@ app.post('/add-lab-tech', authenticateToken, authorizeRoles("admin"), async (req
           } 
           return res.status(500).json("Database error "); 
         } 
-        return res.status(200).json("Lab Tech added successfully "); 
+        
+        db.query(
+          `INSERT INTO users (user_id, password, role) 
+           VALUES (?, ?, ?) 
+           ON DUPLICATE KEY UPDATE password = ?, role = ?`,
+          [lab_tech_id, hashedPassword, role, hashedPassword, role],
+          (err2, result2) => {
+            if (err2) {
+              console.log("DB Error:", err2);
+              if (err2.sqlMessage) {
+                return res.status(400).json(err2.sqlMessage);
+              }
+              return res.status(500).json("Database error ");
+            }
+            return res.status(200).json("Lab Tech added successfully "); 
+          }
+        );
       } 
     ); 
   } catch (error) {
@@ -795,10 +833,11 @@ app.post('/add-front-desk', authenticateToken, authorizeRoles("admin"), async (r
 
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
-    const query = `CALL AddFrontDesk(?, ?, ?, ?)`; 
     db.query( 
-      query, 
-      [front_desk_id, name, hashedPassword, role], 
+      `INSERT INTO front_desk (front_desk_id, name) 
+       VALUES (?, ?) 
+       ON DUPLICATE KEY UPDATE name = ?`, 
+      [front_desk_id, name, name], 
       (err, result) => { 
         if (err) { 
           console.log("DB Error:", err); 
@@ -807,7 +846,23 @@ app.post('/add-front-desk', authenticateToken, authorizeRoles("admin"), async (r
           } 
           return res.status(500).json("Database error "); 
         } 
-        return res.status(200).json("Front Desk added successfully "); 
+        
+        db.query(
+          `INSERT INTO users (user_id, password, role) 
+           VALUES (?, ?, ?) 
+           ON DUPLICATE KEY UPDATE password = ?, role = ?`,
+          [front_desk_id, hashedPassword, role, hashedPassword, role],
+          (err2, result2) => {
+            if (err2) {
+              console.log("DB Error:", err2);
+              if (err2.sqlMessage) {
+                return res.status(400).json(err2.sqlMessage);
+              }
+              return res.status(500).json("Database error ");
+            }
+            return res.status(200).json("Front Desk added successfully "); 
+          }
+        );
       } 
     ); 
   } catch (error) {
@@ -825,10 +880,11 @@ app.post('/add-med-dept', authenticateToken, authorizeRoles("admin"), async (req
 
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
-    const query = `CALL AddMedDept(?, ?, ?, ?)`; 
     db.query( 
-      query, 
-      [med_dept_id, name, hashedPassword, role], 
+      `INSERT INTO med_dept (med_dept_id, name) 
+       VALUES (?, ?) 
+       ON DUPLICATE KEY UPDATE name = ?`, 
+      [med_dept_id, name, name], 
       (err, result) => { 
         if (err) { 
           console.log("DB Error:", err); 
@@ -837,7 +893,23 @@ app.post('/add-med-dept', authenticateToken, authorizeRoles("admin"), async (req
           } 
           return res.status(500).json("Database error "); 
         } 
-        return res.status(200).json("Medicine Dept added successfully "); 
+        
+        db.query(
+          `INSERT INTO users (user_id, password, role) 
+           VALUES (?, ?, ?) 
+           ON DUPLICATE KEY UPDATE password = ?, role = ?`,
+          [med_dept_id, hashedPassword, role, hashedPassword, role],
+          (err2, result2) => {
+            if (err2) {
+              console.log("DB Error:", err2);
+              if (err2.sqlMessage) {
+                return res.status(400).json(err2.sqlMessage);
+              }
+              return res.status(500).json("Database error ");
+            }
+            return res.status(200).json("Medicine Dept added successfully "); 
+          }
+        );
       } 
     ); 
   } catch (error) {
@@ -853,8 +925,7 @@ app.delete('/delete-doctor/:id', authenticateToken, authorizeRoles("admin"), (re
   if (!id) { 
     return res.status(400).json("Doctor ID is required "); 
   } 
-  const query = `CALL DeleteDoctor(?)`; 
-  db.query(query, [id], (err, result) => { 
+  db.query(`DELETE FROM doctors WHERE doc_id = ?`, [id], (err, result) => { 
     if (err) { 
       console.log("DB Error:", err); 
       if (err.sqlMessage) { 
@@ -862,7 +933,17 @@ app.delete('/delete-doctor/:id', authenticateToken, authorizeRoles("admin"), (re
       } 
       return res.status(500).json("Database error "); 
     } 
-    return res.status(200).json("Doctor deleted successfully "); 
+    
+    db.query(`DELETE FROM users WHERE user_id = ?`, [id], (err2, result2) => {
+      if (err2) {
+        console.log("DB Error:", err2);
+        if (err2.sqlMessage) {
+          return res.status(400).json(err2.sqlMessage);
+        }
+        return res.status(500).json("Database error ");
+      }
+      return res.status(200).json("Doctor deleted successfully "); 
+    });
   }); 
 }); 
 
@@ -871,8 +952,7 @@ app.delete('/delete-lab-tech/:id', authenticateToken, authorizeRoles("admin"), (
   if (!id) { 
     return res.status(400).json("Lab Tech ID is required "); 
   } 
-  const query = `CALL DeleteLabTech(?)`; 
-  db.query(query, [id], (err, result) => { 
+  db.query(`DELETE FROM lab_test WHERE lab_tech_id = ?`, [id], (err, result) => { 
     if (err) { 
       console.log("DB Error:", err); 
       if (err.sqlMessage) { 
@@ -880,7 +960,17 @@ app.delete('/delete-lab-tech/:id', authenticateToken, authorizeRoles("admin"), (
       } 
       return res.status(500).json("Database error "); 
     } 
-    return res.status(200).json("Lab Tech deleted successfully "); 
+    
+    db.query(`DELETE FROM users WHERE user_id = ?`, [id], (err2, result2) => {
+      if (err2) {
+        console.log("DB Error:", err2);
+        if (err2.sqlMessage) {
+          return res.status(400).json(err2.sqlMessage);
+        }
+        return res.status(500).json("Database error ");
+      }
+      return res.status(200).json("Lab Tech deleted successfully "); 
+    });
   }); 
 }); 
 
@@ -889,8 +979,7 @@ app.delete('/delete-front-desk/:id', authenticateToken, authorizeRoles("admin"),
   if (!id) { 
     return res.status(400).json("Front Desk ID is required "); 
   } 
-  const query = `CALL DeleteFrontDesk(?)`; 
-  db.query(query, [id], (err, result) => { 
+  db.query(`DELETE FROM front_desk WHERE front_desk_id = ?`, [id], (err, result) => { 
     if (err) { 
       console.log("DB Error:", err); 
       if (err.sqlMessage) { 
@@ -898,16 +987,29 @@ app.delete('/delete-front-desk/:id', authenticateToken, authorizeRoles("admin"),
       } 
       return res.status(500).json("Database error "); 
     } 
-    return res.status(200).json("Front Desk deleted successfully"); 
+    
+    db.query(`DELETE FROM users WHERE user_id = ?`, [id], (err2, result2) => {
+      if (err2) {
+        console.log("DB Error:", err2);
+        if (err2.sqlMessage) {
+          return res.status(400).json(err2.sqlMessage);
+        }
+        return res.status(500).json("Database error ");
+      }
+      return res.status(200).json("Front Desk deleted successfully"); 
+    });
   }); 
 }); 
 
 app.delete('/delete-med-dept/:id', authenticateToken, authorizeRoles("admin"), (req, res) => { 
   const { id } = req.params; 
-  const query = `CALL DeleteMedDept(?)`; 
-  db.query(query, [id], (err) => { 
+  db.query(`DELETE FROM med_dept WHERE med_dept_id = ?`, [id], (err) => { 
     if (err) return res.status(500).json(err); 
-    res.json("Med Dept deleted "); 
+    
+    db.query(`DELETE FROM users WHERE user_id = ?`, [id], (err2) => {
+      if (err2) return res.status(500).json(err2);
+      res.json("Med Dept deleted "); 
+    });
   }); 
 }); 
 
