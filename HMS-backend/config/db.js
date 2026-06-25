@@ -1,16 +1,29 @@
 const mysql = require("mysql2");
+const fs = require("fs");
+const path = require("path");
 require("dotenv").config();
 
 const dbUrl = process.env.DATABASE_URL || process.env.MYSQL_URL;
 
 console.log("Database Pool: Initializing MySQL connection pool...");
-console.log("Database Pool: SSL/TLS transport config: ssl.rejectUnauthorized = false");
+
+// Resolve the cert file path to work in both local development and on Render
+const certPath = path.resolve(__dirname, "../certs/tidb-ca.pem");
+let caCert;
+try {
+  caCert = fs.readFileSync(certPath);
+  console.log("SSL CA certificate loaded successfully");
+} catch (err) {
+  const fallbackPath = path.resolve(process.cwd(), "certs/tidb-ca.pem");
+  caCert = fs.readFileSync(fallbackPath);
+  console.log("SSL CA certificate loaded successfully");
+}
 
 const poolConfig = dbUrl
   ? {
       uri: dbUrl,
       ssl: {
-        rejectUnauthorized: false
+        ca: caCert
       },
       waitForConnections: true,
       connectionLimit: 10,
@@ -23,7 +36,7 @@ const poolConfig = dbUrl
       password: process.env.DB_PASSWORD || "",
       database: process.env.DB_NAME || "sync_care",
       ssl: {
-        rejectUnauthorized: false
+        ca: caCert
       },
       waitForConnections: true,
       connectionLimit: 10,

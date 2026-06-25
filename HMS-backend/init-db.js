@@ -1,5 +1,7 @@
 const mysql = require("mysql2/promise");
 const bcrypt = require("bcryptjs");
+const fs = require("fs");
+const path = require("path");
 require("dotenv").config();
 
 async function initDb() {
@@ -11,7 +13,18 @@ async function initDb() {
 
   const dbUrl = process.env.DATABASE_URL || process.env.MYSQL_URL;
   console.log("Database Init: Starting connection attempt...");
-  console.log("Database Init: SSL/TLS transport config: ssl.rejectUnauthorized = false");
+
+  // Resolve the cert file path to work in both local development and on Render
+  const certPath = path.resolve(__dirname, "certs/tidb-ca.pem");
+  let caCert;
+  try {
+    caCert = fs.readFileSync(certPath);
+    console.log("SSL CA certificate loaded successfully");
+  } catch (err) {
+    const fallbackPath = path.resolve(process.cwd(), "certs/tidb-ca.pem");
+    caCert = fs.readFileSync(fallbackPath);
+    console.log("SSL CA certificate loaded successfully");
+  }
 
   if (dbUrl) {
     console.log(`Database Init: Connecting to MySQL database using connection URL...`);
@@ -33,7 +46,7 @@ async function initDb() {
         uri: dbUrl,
         multipleStatements: true,
         ssl: {
-          rejectUnauthorized: false
+          ca: caCert
         }
       });
     } else {
@@ -44,7 +57,7 @@ async function initDb() {
         password,
         multipleStatements: true,
         ssl: {
-          rejectUnauthorized: false
+          ca: caCert
         }
       });
     }
