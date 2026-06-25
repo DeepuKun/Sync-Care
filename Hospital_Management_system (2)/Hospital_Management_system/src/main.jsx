@@ -8,7 +8,7 @@ import { BrowserRouter } from 'react-router-dom'
 const API_URL = import.meta.env.VITE_API_URL || 
   (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" 
     ? "http://localhost:5000" 
-    : "https://sync-care-backend-x7nw.onrender.com");
+    : "https://sync-care-1.onrender.com");
 
 // Global fetch interceptor to inject JWT token automatically, rewrite URLs, and track loading state
 let activeRequests = 0;
@@ -99,7 +99,7 @@ window.fetch = async function (resource, init) {
 
 // Silent ping to wake up the server immediately (mitigate Render cold-starts)
 const wakeUpServer = () => {
-  const pingUrl = API_URL.startsWith('http') ? API_URL : `https://sync-care-backend-x7nw.onrender.com`;
+  const pingUrl = API_URL.startsWith('http') ? API_URL : `https://sync-care-1.onrender.com`;
   originalFetch(pingUrl)
     .then(() => console.log("Backend server pinged successfully for wakeup."))
     .catch((err) => console.warn("Failed to ping backend server for wakeup:", err));
